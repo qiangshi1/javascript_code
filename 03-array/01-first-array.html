@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+    <script>
+        // 创建了一个空的数组
+        // 方法1: 
+        var arr1= new Array();
+        // 方法2: 
+        var arr2=[];
+        var arr3=[1, 2, 3, 4, 5];
+        // 数组里可以放任意类型的数据
+        var arr3=[1, 'wang', true];
+        // 访问数组
+        console.log(arr3);
+        console.log(arr3[0]);
+        // 越界会输出undefined
+        console.log(arr3[99]);
+        // 数组长度
+        console.log(arr3.length);
+        arr3.length=4;
+        console.log(arr3[3]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

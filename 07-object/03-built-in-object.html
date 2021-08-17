@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象</title>
+    <script>
+        // 1. Math
+        console.log(Math.PI);
+        console.log(Math.max(1, 2, 3));
+        console.log(Math.max(1, 2, 'pink')); // NaN
+        console.log(Math.max()); // -Infinity
+        console.log(Math.abs(-55));
+        console.log(Math.abs('-55')); // 55
+        console.log(Math.floor(4.2)); // 4
+        console.log(Math.floor(4.8)); // 4
+        console.log(Math.ceil(4.2)); // 5
+        console.log(Math.ceil(4.8)); // 5
+        console.log(Math.round(4.2)); // 4
+        console.log(Math.round(4.8)); // 5
+        console.log(Math.round(4.5)); // 5
+        console.log(Math.round(-4.2)); // -4
+        console.log(Math.round(-4.8)); // -5
+        console.log(Math.round(-4.5)); // -4 .5往大了取
+        console.log(Math.random());
+        console.log();
+        // Date
+        var date1= new Date();
+        console.log(date1);
+        console.log(date1.getFullYear());
+        console.log(date1.getMonth()); // 区间: 0-11
+        console.log(date1.getDate());
+        console.log(date1.getDay()); // 周日是0, 从周日开始
+        var year=date1.getFullYear();
+        var month=date1.getMonth()+1;
+        var date=date1.getDate();
+        var week=['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        var day=date1.getDay();
+        console.log('今天是: '+year+'年'+month+'月'+date+'日'+week[day]);
+        console.log(date1.getHours());
+        console.log(date1.getMinutes());
+        console.log(date1.getSeconds());
+        console.log(date1.valueOf()); // 时间戳, 单位毫秒
+        console.log(date1.getTime()); // 时间戳, 单位毫秒, 和valueOf()一样. 
+        var timeStamp= +new Date(); // 时间戳, 单位毫秒, 和valueOf()一样. 
+        console.log(timeStamp);
+        console.log(Date.now()); // 时间戳, 单位毫秒, 和valueOf()一样. H5新增
+        var date2= new Date(2019, 10, 1); // 比我输入的日期要打一个月, 
+        console.log(date2);
+        var date3= new Date('2019, 10, 1, 8:8:8');
+        console.log(date3);
+        var date4= new Date('2019, 10, 1, 8:8:8');
+        console.log(date4);
+
+        // 数组对象
+        var arr=[];
+        var num;
+        // 检测对象是否是数组
+        // 1. 
+        console.log(arr instanceof Array); // true
+        console.log(num instanceof Array); // false
+        // 2. H5新增
+        console.log(Array.isArray(arr)); // true
+        console.log(Array.isArray(num)); // false
+        // 添加数组
+        var arr1=[1, 2, 3];
+        console.log(arr1); // 1, 2, 3
+        arr1.push(4);  
+        console.log(arr1); // 1, 2, 3, 4
+        arr1.push(5, 6);
+        console.log(arr1); // 1, 2, 3, 4, 5, 6
+        console.log(arr1.push(7, 8)); // push返回新增元素后数组的长度
+        arr1.unshift(-1, 0); // 向前边新增元素
+        console.log(arr1); // -1, 0, 1, 2, 3, 4, 5, 6
+        // 删除元素
+        var arr2=[1, 2, 3, 4];
+        console.log(arr2.pop()); // 4. pop()删除元素, 返回被删除的元素, pop()删除最后一个元素. 
+        console.log(arr2); // 1, 2, 3
+        arr2.shift(); // 删除第一个元素
+        console.log(arr2); // 2, 3
+        // 数组排序
+        var arr3=[1, -2, 3, -4, 5, -6];
+        arr3.sort(function (a, b){ // 升序排列
+            return a-b;
+        });
+        console.log(arr3);
+        arr3.sort(function (a, b){ // 降序排列
+            return b-a;
+        });
+        console.log(arr3);
+        // 数组索引
+        var arr4=['red', 'blue', 'green', 'blue', 'green'];
+        console.log(arr4.indexOf('blue')); // 1. 返回该数组元素的索引号, 只返回的第一个满足要求的索引号. 找不到的话会返回-1. 
+        console.log(arr4.lastIndexOf('blue')); // 3. 返回该数组元素的索引号, 只返回的最后一个满足要求的索引号. 找不到的话会返回-1. 
+        // 数组转字符串
+        var arr5=['red', 'blue', 'green', 'blue', 'green'];
+        console.log(arr5.toString());
+        console.log(arr5.join()); // 同toString() 
+        console.log(arr5.join('&')); // 更改分割符, 默认是逗号
+        // 字符串对象
+        // 根据字符返回位置
+        var str1='abcdefgabcd';
+        console.log(str1.indexOf('c')); // 2 
+        console.log(str1.indexOf('c', 3)); // 9. 从9号位置开始查找. 
+        // 根据索引得到字符
+        var str2='abcdefgabcd';
+        console.log(str2.charAt(3)); // d
+        console.log(str2.charCodeAt(3)); // 100. ascii码
+        console.log(str2[3]); // d. h5支持
+        // 操作字符串
+        var str3='andy';
+        console.log(str3.concat('red')); // andyred. 拼接字符串, 相当于 + 号
+        console.log(str3.substr(2, 2)); //dy. 截取子串, 从2号位置截取2个字符, 
+        var str4='andy';
+        console.log(str4.replace('a', 'b')); // bndy. 替换字符串中的字符, 把a替换成b. 只替换一次, 第一个.
+        var str5='red, blue, green, blue, green';
+        console.log(str5.split(',')); // 字符串转数组
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>

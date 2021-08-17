@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+    <script>
+        console.log('测试数字开始');
+        // var num;
+        // num=010;
+        console.log(010);
+        console.log(080);
+        console.log(0xff);
+        // 报错
+        // console.log(0xgg);
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+        // 无穷大/无穷小
+        console.log(Number.MAX_VALUE*2);
+        console.log(-Number.MAX_VALUE*2);
+        // NaN
+        console.log("ppppp"-123);
+        console.log(isNaN(123));
+        console.log(isNaN('pink'));
+        console.log('测试数字结束');
+    </script>
+    <script>
+        console.log('测试String开始');
+        console.log('1234567890'.length);
+        console.log('123'+'123'); //123123
+        console.log('123'+123); //123123
+        console.log(123+123); //246
+        var num=123;
+        console.log('123'+num);
+        console.log('测试String结束');
+    </script>
+    <script>
+        console.log('测试Boolean开始');
+        console.log(true);
+        console.log(true+1);
+        console.log('测试Boolean结束');
+    </script>
+    <script>
+        console.log('测试其他开始');
+        console.log(undefined+'123'); // undefined123
+        console.log(undefined+123); // NaN
+        console.log(null+'123'); // null123
+        console.log(null+123); // 123
+
+        console.log('测试其他结束');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
