@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dataset</title>
+    <style>
+        .box1_class {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="box1_class" id='box1_id'></div>
+    <script>
+        var box1=document.querySelector('.box1_class');
+        box1.setAttribute('data-new-attribute', 'yes');
+        console.log(box1.getAttribute('data-new-attribute')); // yes
+        console.log(box1.dataset.newAttribute); // yes
+        console.log(box1.dataset['newAttribute']); // yes
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div id="box1">hahahahaha</div>
+    <!-- 方法1: 通过id获取元素 -->
+    <!-- script要写在下边, 写在上边不管用 -->
+    <script>
+        var box1=document.getElementById('box1');
+        console.log(box1); // <div id="box1">hahahahaha</div>
+        console.log(typeof box1); // object getElementById()返回对象类型
+        console.dir(box1); // 打印详细信息
+    </script>
+    <!-- 方法2: 根据类型获取 -->
+    <nav>nav1</nav>
+    <div>box2</div>
+    <nav>nav2</nav>
+    <nav>nav3</nav>
+    <nav>nav4</nav>
+    <ol>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+        <li>li5</li>
+    </ol>
+    <script>
+        var navs=document.getElementsByTagName('nav');
+        console.log(navs);
+        for(var i=0; i<navs.length; i++){
+            console.log(navs[i]);
+        }
+        var ol=document.getElementsByTagName('ol');
+        console.log(ol);
+        console.log(ol[0]);
+        console.log(ol[0].getElementsByTagName('li'));
+    </script>
+    <!-- 方法3: 根据类名获取 -->
+    <div class="box3">box3</div>
+    <script>
+        var box3=document.getElementsByClassName('box3');
+        console.log(box3);
+        console.log(box3[0]);
+    </script>
+    
+    <!-- 方法4: 返回指定选择器的对象 -->
+    <div class="box4">box4</div>
+    <div id="box5">box5</div>
+    <h1>box6</h1>
+    <script>
+        // querySelector 返回第一个对象
+        var box4=document.querySelector('.box4');
+        var box5=document.querySelector('#box5');
+        var box6=document.querySelector('h1');
+        console.log(box4);
+        console.log(box5);
+        console.log(box6);
+        // querySelectorAll 返回所有的对象
+        var box4s=document.querySelectorAll('.box4');
+        console.log(box4s[0]);
+    </script>
+    <script>
+        // 获取body
+        console.log(document.body); 
+        console.dir(document.body); 
+        // 获取html
+        // console.log(document.html); //undefined. 错误示范 
+        console.log(document.documentElement); 
+    </script>
+</body>
+</html>

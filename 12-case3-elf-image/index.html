@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精灵图</title>
+    <style>
+        .box ul {
+            margin: 0 auto;
+            width: 500px;
+        }
+        .box li {
+            float: left;
+            width: 30px;
+            height: 30px;
+            background: url(images/elf.png) no-repeat;
+            background-size: 24px 597px;
+            list-style: none;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        // 1. 
+        var lis=document.querySelectorAll('li');
+        // 2. 
+        for(var i=0; i<lis.length; i++){
+            var index=i*44;
+            lis[i].style.backgroundPosition= '0 -'+index+'px';
+        }
+    </script>
+</body>
+</html>

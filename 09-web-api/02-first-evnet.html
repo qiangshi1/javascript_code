@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件基础</title>
+</head>
+<body>
+    <button id="btn">唐伯虎</button>
+    <script>
+        // 获取事件源 通过查document得到
+        var btn=document.getElementById('btn');
+        // 指定事件类型(点击) btn.onclick
+        // 写时间处理程序 function(){alert('秋香');};
+        btn.onclick=function(){
+            alert('秋香');
+        };
+    </script>
+</body>
+</html>

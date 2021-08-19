@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素自定义属性</title>
+    <style>
+        .box1_class {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="box1_class" id='box1_id'></div>
+    <script>
+        var box1=document.querySelector('.box1_class');
+        // 通过元素.属性获取属性, 该方法只能获取内置属性
+        console.log(box1.id); // box1_id
+        // 获取样式属性比较特殊；
+            // 通过以下方式获取的是空的样式属性. 也就是css中指定了样式, 但js中样式是空的. 
+        console.log(box1.style.backgroundColor);
+            // 要通过以下方式获取:
+        var box1_style=document.defaultView.getComputedStyle(box1);
+        console.log(box1_style.backgroundColor); // rgb(255, 0, 0)
+        // 通过.getAttribute('属性名')获取属性
+        console.log(box1.getAttribute('id')); // box1_id 该方法也可以获取自定义属性
+
+        // 设置元素自定义属性
+        box1.setAttribute('new_attribute', 'yes');
+        console.log(box1.getAttribute('new_attribute'));
+        console.log(box1.className); // box1_class
+        console.log(box1.getAttribute('class')); // box1_class
+        
+        // 移除元素自定义属性
+        box1.removeAttribute('new_attribute');
+        console.log(box1.getAttribute('new_attribute')); // null
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东tab</title>
+    <style>
+        /* 把我们所有标签的内外边距清零 */
+        * {
+            margin: 0;
+            padding: 0;
+            /* css3盒子模型 */
+            box-sizing: border-box;
+        }
+
+        /* em 和 i 斜体的文字不倾斜 */
+        em,
+        i {
+            font-style: normal
+        }
+
+        /* 去掉li 的小圆点 */
+        li {
+            list-style: none
+        }
+
+        a {
+            color: #666;
+            text-decoration: none
+        }
+
+        /* a:hover {
+            color: #c81623
+        } */
+
+        .navitems {
+            /* float: left; */
+            width: 457px;
+            margin: 0 auto;
+            overflow: auto;
+            border-bottom: 2px solid #c81623;
+        }
+
+        .navitems ul li {
+            float: left;
+        }
+
+        .navitems ul li a {
+            display: block;
+            height: 45px;
+            line-height: 45px;
+            font-size: 16px;
+            padding: 0 25px;
+        }
+
+        .botitems {
+            width: 457px;
+            margin: 0 auto;
+        }
+        .botitems div {
+            display: none;
+        }
+        .current {
+            background-color: #c81623;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navitems">
+        <ul>
+            <li><a href="#">商品介绍</a></li>
+            <li><a href="#">规格包装</a></li>
+            <li><a href="#">售后保障</a></li>
+            <li><a href="#">商品评价</a></li>
+        </ul>
+    </div>
+    <div class="botitems">
+        <div>商品介绍</div>
+        <div>规格包装</div>
+        <div>售后保障</div>
+        <div>商品评价</div>
+    </div>
+    <script>
+        // 头部的li
+        var lis = document.querySelector('.navitems').querySelectorAll('li');
+        // 底部的div
+        var divs = document.querySelector('.botitems').querySelectorAll('div');
+        console.log(lis);
+        // 给每个li设置唯一标识符, 通过添加自定义属性设置. 
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', ''+i);
+        }
+        // 给每个li设置回调
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onclick = function () {
+                for (var j = 0; j < lis.length; j++) {
+                    lis[j].className = '';
+                }
+                this.className = 'current';
+                // 通过自定义属性'index'判断当前回调属于哪个元素
+                var index=this.getAttribute('index');
+                console.log(index);
+                for(var j=0; j<divs.length; j++){
+                    divs[j].style.display='none';
+                }
+                divs[index].style.display='block';
+            }
+        };
+
+    </script>
+</body>
+
+</html>

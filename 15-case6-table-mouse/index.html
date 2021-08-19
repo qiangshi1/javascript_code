@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格变色</title>
+    <style>
+        table {
+            margin: 0 auto;
+        }
+        .bg {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>股表代码</td>
+                <td>名称</td>
+                <td>项1</td>
+                <td>项2</td>
+                <td>项3</td>
+                <td>K值</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月开发债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003527</td>
+                <td>农银金穗3个月开发债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003528</td>
+                <td>农银金穗4个月开发债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003529</td>
+                <td>农银金穗5个月开发债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003530</td>
+                <td>农银金穗6个月开发债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗7个月开发债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var trs=document.querySelector('tbody').querySelectorAll('tr');
+        // for( var i=0; i<trs.length; i++){
+        //     trs[i].onmouseover=function(){
+        //         console.log('here');
+        //         for( var i=0; i<trs.length; i++){
+        //             trs[i].className='';
+        //         }
+        //         this.className='bg';
+        //     };
+        // }
+        for( var i=0; i<trs.length; i++){
+            trs[i].onmouseover=function(){
+                this.className='bg';
+            };
+            trs[i].onmouseout=function(){
+                this.className='';
+            };
+
+        }
+    </script>
+</body>
+</html>

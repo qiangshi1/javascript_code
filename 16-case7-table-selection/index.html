@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格选择</title>
+    <style>
+        table {
+            margin: 0 auto;
+        }
+
+        .bg {
+            background-color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>商品</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>方便面</td>
+                <td>8￥</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>泡面</td>
+                <td>9￥</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>干脆面</td>
+                <td>18￥</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var inputHead = document.querySelector('thead').querySelector('input');
+        var inputsBody = document.querySelector('tbody').querySelectorAll('input');
+        // head中的复选框控制body中的复选框
+        inputHead.onclick=function(){
+            // console.log(inputHead.checked);
+            if(this.checked==false){
+                // console.log('here1');
+                for(var i=0; i<inputsBody.length; i++){
+                    inputsBody[i].checked='';
+                }
+            }
+            if(this.checked==true){
+                // console.log('here2');
+                for(var i=0; i<inputsBody.length; i++){
+                    inputsBody[i].checked='checked';
+                }
+            }
+        };
+        // body中的复选框控制head中的复选框
+        for(var i=0; i<inputsBody.length; i++){
+            inputsBody[i].onclick=function(){
+                var checked=true;
+                for(var i=0; i<inputsBody.length; i++){
+                    if(inputsBody[i].checked==false){
+                        checked=false;
+                        break;
+                    }
+                }
+                console.log(checked);
+                if(checked==true){
+                    inputHead.checked=true;
+                }else{
+                    inputHead.checked=false;
+                }
+            };
+        }
+        
+    </script>
+</body>
+
+</html>

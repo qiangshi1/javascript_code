@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改表单元素属性</title>
+    <style>
+        /* #div{
+            width: 350px;
+            height: 250px;
+            background-color: #ccc;
+        } */
+    </style>
+</head>
+<body>
+    <button>按钮</button>
+    <input type="text" value="请输入内容">
+    <script>
+        var btn=document.querySelector('button');
+        var input=document.querySelector('input');
+        btn.onclick=function() {
+            input.value='被点击了';
+            // btn.disabled=true;
+            this.value='被点击了'; // 等同于btn.disabled=true;
+            
+        };
+    </script>
+</body>
+</html>

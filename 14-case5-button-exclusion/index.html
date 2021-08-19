@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button排他</title>
+</head>
+<body>
+    <button>b1</button>
+    <button>b2</button>
+    <button>b3</button>
+    <button>b4</button>
+    <button>b5</button>
+    <script>
+        var btns=document.querySelectorAll('button');
+        for(var i=0; i<btns.length; i++){
+            btns[i].onclick=function(){
+                // 1. 复位所有元素
+                for(var i=0; i<btns.length; i++){
+                    btns[i].style.backgroundColor='';
+                }
+                // 2. 设置当前元素
+                this.style.backgroundColor='red';
+            };
+        }
+    </script>
+</body>
+</html>
