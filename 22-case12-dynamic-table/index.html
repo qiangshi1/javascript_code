@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态表格</title>
+    <style>
+        table {
+            margin: 0 auto;
+        }
+        table  th{
+            border: 1px solid #ccc;
+        }
+        table  td{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <td>姓名</td>
+            <td>科目</td>
+            <td>成绩</td> -->
+        </tbody>
+    </table>
+    <script>
+        var datas = [
+            {
+            name: '魏璎珞',
+            suject: 'javascript',
+            score: 100
+            },
+            {
+            name: '宏力',
+            suject: 'javascript',
+            score: 98
+            },
+            {
+            name: '建林',
+            suject: 'javascript',
+            score: 99
+            },
+            {
+            name: '明玉',
+            suject: 'javascript',
+            score: 60
+            }
+        ];
+        var tbody=document.querySelector('tbody');
+        for(var i=0; i<datas.length; i++){
+            var tr=document.createElement('tr');
+            // 前三列 数据
+            for(var k in datas[i]){
+                var td=document.createElement('td');
+                td.innerHTML=datas[i][k];
+                console.log(datas[i][k]);
+                tr.appendChild(td);
+            }
+            // 最后一列 删除选项
+            var td=document.createElement('td');
+            td.innerHTML='<a href="javascript:;">删除</a>';
+            // td.innerHTML='<a href="#">删除</a>';
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+        
+        }
+        // 删除逻辑
+        var as=document.querySelectorAll('a');
+        console.log(as);
+        for (var i=0; i<as.length; i++){
+            as[i].onclick=function(){
+                tbody.removeChild(this.parentNode.parentNode);
+            };
+        }
+    </script>
+</body>
+</html>

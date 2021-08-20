@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件绑定方法</title>
+</head>
+<body>
+    <button id="btn">唐伯虎</button>
+    <button id="btn">第一种事件解绑方法</button>
+    <div></div>
+    <button id="btn">唐伯虎</button>
+    <button id="btn">第二种事件解绑方法</button>
+    <script> 
+        var btn=document.querySelectorAll('#btn');
+        console.log(btn);
+        btn[0].onclick=function(){
+            alert('秋香');
+        };
+        // 1. 传统方法解绑事件
+        btn[1].onclick=function(){
+            btn[0].onclick=null;
+        };
+        var fn=function(){
+            alert('丁香');
+        };
+        // 2. 方法监听方式解绑
+        btn[2].addEventListener('click', fn);
+            // 绑定时回调不能再是匿名函数, 不然不知道要解绑哪一个
+        btn[3].onclick=function(){
+            btn[2].removeEventListener('click', fn);
+        };
+    </script>
+</body>
+</html>
