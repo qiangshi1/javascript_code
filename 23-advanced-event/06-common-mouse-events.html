@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见鼠标事件</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    我是一段不愿意分享的文字
+    <!-- <button>我是button</button> -->
+    <script>
+        document.addEventListener('contextmenu', function(e){
+            // 阻止右键菜单
+            e.preventDefault();  
+        });
+        document.addEventListener('selectstart', function(e){
+            // 阻止选中文字
+            e.preventDefault();  
+        });
+        // var btn=document.querySelector('button');
+        document.addEventListener('click', function(e){
+            // clientX 视口坐标X
+            console.log('clientX: '+e.clientX);
+            // clientY 视口坐标Y
+            console.log('clientY: '+e.clientY);
+            // pageX 页面坐标X
+            console.log('pageX: '+e.pageX);
+            // pageY 页面坐标Y
+            console.log('pageY: '+e.pageY);
+            // screenX 屏幕坐标X
+            console.log('screenX: '+e.screenX);
+            // screenY 屏幕坐标Y
+            console.log('screenY: '+e.screenY);
+            // 
+        });
+    </script>
+</body>
+</html>

@@ -7,28 +7,30 @@
     <title>事件绑定方法</title>
 </head>
 <body>
-    <button id="btn">传统方法绑定回调</button>
-    <button id="btn">事件监听绑定回调</button>
-    <script>
-        // 方法1： 传统方法
-            // 只能绑定一个回调, 后边的回调会覆盖掉前边的回调. 这里会输出 丁香 . 
+    <button id="btn">唐伯虎</button>
+    <button id="btn">第一种事件解绑方法</button>
+    <div></div>
+    <button id="btn">唐伯虎</button>
+    <button id="btn">第二种事件解绑方法</button>
+    <script> 
         var btn=document.querySelectorAll('#btn');
         console.log(btn);
         btn[0].onclick=function(){
             alert('秋香');
         };
-        btn[0].onclick=function(){
+        // 1. 传统方法解绑事件
+        btn[1].onclick=function(){
+            btn[0].onclick=null;
+        };
+        var fn=function(){
             alert('丁香');
         };
-
-        // 方法2： addEventListner()
-            // 可以绑定多个回调, 该方法可能有兼容性的问题. 
-        btn[1].addEventListener('click', function(){
-            alert('秋香');
-        });
-        btn[1].addEventListener('click', function(){
-            alert('丁香');
-        });
+        // 2. 方法监听方式解绑
+        btn[2].addEventListener('click', fn);
+            // 绑定时回调不能再是匿名函数, 不然不知道要解绑哪一个
+        btn[3].onclick=function(){
+            btn[2].removeEventListener('click', fn);
+        };
     </script>
 </body>
 </html>

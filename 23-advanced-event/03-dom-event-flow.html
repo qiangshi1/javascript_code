@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM事件流</title>
+    <style>
+        .father {
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(187, 23, 23);
+            overflow: hidden;
+        }
+
+        .son {
+            margin: 25px auto;
+            /* padding: 25px 0; */
+            width: 150px;
+            height: 150px;
+            background-color: rgb(119, 9, 82);
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <script>
+        var test = '捕获';
+        // var test='冒泡';
+        if (test == '捕获') {
+            // 先弹出fahter, 在弹出son
+            var son = document.querySelector('.son');
+            // addEventListener的第3个参数是true, 处于捕获阶段. 如果3个参数是false或者省略, 处于冒泡阶段
+            son.addEventListener('click', function () {
+                alert('son');
+            }, true);
+            var father = document.querySelector('.father');
+            father.addEventListener('click', function () {
+                alert('father');
+            }, true);
+
+        }else if (test == '冒泡') {
+            // 先弹出son, 再弹出father
+            var son = document.querySelector('.son');
+            // addEventListener的第3个参数是true, 处于捕获阶段. 如果3个参数是false或者省略, 处于冒泡阶段
+            son.addEventListener('click', function () {
+                alert('son');
+            }, false);
+            var father = document.querySelector('.father');
+            father.addEventListener('click', function () {
+                alert('father');
+            }, false);
+        }else {
+            alert('请指定test是捕获还是冒泡');
+        }
+
+    </script>
+</body>
+
+</html>

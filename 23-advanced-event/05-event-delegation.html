@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        .father {
+            margin: 0 auto;
+            width: 200px;
+            /* height: 200px; */
+            /* background-color: rgb(187, 23, 23); */
+            overflow: hidden;
+        }
+
+        .son {
+            margin: 25px auto;
+            /* padding: 25px 0; */
+            width: 150px;
+            /* height: 150px; */
+            /* background-color: rgb(119, 9, 82); */
+            text-align: center;
+            /* line-height: 100px; */
+        }
+    </style>
+
+</head>
+
+<body>
+    <ul class="father">
+        <li class="son">son1</li>
+        <li class="son">son2</li>
+        <li class="son">son3</li>
+        <li class="son">son4</li>
+    </ul>
+    <script>
+        // 给ul写回调, 用event.target找子节点li, 而不是给每一个li写回调. 
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function (event) {
+            // alert('father');
+            // console.log('father');
+            // console.log(event.target);
+            event.target.style.backgroundColor='rgb(119, 9, 82)';
+        }, false);
+    </script>
+</body>
+
+</html>

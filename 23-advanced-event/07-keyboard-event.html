@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+</head>
+<body>
+    <script>
+        // keyup 松下键盘触发
+        document.addEventListener('keyup', function(){
+            console.log('keyup');
+        });
+        // keydown 按下键盘触发, 如果按住不松手会一直触发
+        document.addEventListener('keydown', function(){
+            console.log('keydown');
+        });
+        // keypress 按下键盘触发, 如果按住不松手会一直触发. 相比于keyup, keypress不能识别功能键(ctr shift 等)
+        // 若同时有事件keydown和keypress, 会先执行keydown
+        document.addEventListener('keypress', function(){
+            console.log('keypress');
+        });
+
+        // 事件对象
+        document.addEventListener('keyup', function(e){
+            // (1). keyCode 按键的ascii码值, 
+                // keyup和keydown不区分字母大小写, keypress会区分字母的大小写
+            console.log(e.keyCode);
+        });
+
+    </script>
+</body>
+</html>

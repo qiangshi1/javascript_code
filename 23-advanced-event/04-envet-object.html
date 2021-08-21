@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象</title>
+    <style>
+        .box1 {
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(187, 23, 23);
+            overflow: hidden;
+        }
+        .father {
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(187, 23, 23);
+            overflow: hidden;
+        }
+
+        .son {
+            margin: 25px auto;
+            /* padding: 25px 0; */
+            width: 150px;
+            height: 150px;
+            background-color: rgb(119, 9, 82);
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        123
+    </div>
+    <ul>
+        <li>123</li>
+        <li>456</li>
+        <li>789</li>
+    </ul>
+    <a href="https://www.baidu.com/">百度一下</a>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <script>
+        var box1 = document.querySelector('.box1');
+        // 这里回调函数的应参event就是事件对象, 当然envet可以命名成其它的名字
+        // 事件对象还有的字段是系统指定的. 
+        // 该方法可能有兼容性问题, 老版本获取事件对象的方法是调用变量: windows.event
+        box1.addEventListener('click', function (event) {
+            // 为保证兼容性, 你可以看到这种代码:
+            // event = event || windows.event
+            console.log(event);
+            // 事件对象常见的属性和方法
+            // (1). event.target获取触发事件的元素, 注意这个和绑定事件的元素不一样. 观察下边ul的例子
+            console.log(event.target); // <div class="box1">123</div>
+            // (2). event.currentTarget 获取绑定事件元素, 同this
+            console.log(event.currentTarget); // <div class="box1">123</div>
+            // (3). event.type 获取事件类型
+            console.log(event.type); // click
+            // (4). event.preventDefault() 阻止默认行为
+            // 见下边的a例子
+            // (5). return false  阻止默认行为 但只能用在onclick等方法中, 不能用在addEventListener中 同event.preventDefault()
+            // (6). event.stopPropagation() 阻止冒泡, 见下边的father son例子
+            // (7). window.event.cancelBubble=true 阻止冒泡, 同window.event.stopPropagation() ie678用法
+
+            
+        }, true);
+        // (1). 测试event.target和this的区别
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function (event) {
+            console.log(this); // this是绑定事件元素 ul元素
+            console.log(event.target); // event.target是触发事件元素 li元素
+        }, true);
+
+        // (4/5). 阻止默认行为 event.preventDefault() , 注意小括号可不省略
+        var a=document.querySelector('a');
+        a.addEventListener('click', fn);
+        function fn(event){
+            event.preventDefault();
+            // return false; // 失效, 在onclick中生效
+        }
+        // (6/7). event.stopPropagation() 阻止冒泡
+            // 只弹出son不弹出father
+        var son = document.querySelector('.son');
+            son.addEventListener('click', function () {
+                alert('son');
+                event.stopPropagation();
+                // window.event.cancelBubble=true; 同window.event.stopPropagation() ie678用法
+            }, false);
+            var father = document.querySelector('.father');
+            father.addEventListener('click', function () {
+                alert('father');
+            }, false);
+    </script>
+</body>
+</html>

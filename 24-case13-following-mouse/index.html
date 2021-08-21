@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一个无时无刻都在跟随鼠标的图片</title>
+    <style>
+        img {
+            position: absolute;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/g.gif" alt="">
+    <script>
+        var img=document.querySelector('img');
+        document.addEventListener('mousemove', function(e){
+            var x=e.pageX;
+            var y=e.pageY;
+            // 加一点偏移量
+            var offset_x=40;
+            var offset_y=40;
+            // 别忘了加单位
+            img.style.left=x-offset_x+'px';
+            img.style.top=y-offset_y+'px';
+            
+        });
+    </script>
+</body>
+</html>
