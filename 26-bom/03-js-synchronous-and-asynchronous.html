@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js同步和异步</title>
+</head>
+<body>
+    <script>
+        var test = 4;
+        if (test == 1) {
+            // 输出顺序: 1 2 3
+            console.log(1);
+            setTimeout(() => {
+                console.log(3);
+            }, 500);
+            console.log(2);
+        } else if (test == 2) {
+            // 输出顺序: 1 2 3
+            console.log(1);
+            setTimeout(() => {
+                console.log(3);
+            }, 0); // 这里是0 
+            console.log(2);
+        } else if (test == 3) {
+            // 输出顺序: 1 2 3
+            console.log(1);
+            setTimeout(() => {
+                console.log(3);
+            }, 0); // 这里是0 
+            var i=0;
+            while(i!=1000000000){
+                i++;
+            }
+            console.log(2);
+        } else if (test == 4) {
+            // 输出顺序: 1 2 3
+            console.log(1);
+            setTimeout(() => {
+                console.log(2);
+            }, 0);
+            setTimeout(() => {
+                console.log(3);
+            }, 0);
+        }
+    </script>
+</body>
+
+</html>

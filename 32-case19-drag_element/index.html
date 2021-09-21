@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽登录框</title>
+  <style>
+    * {
+            margin: 0;
+            padding: 0;
+        }
+    .box{
+      position: fixed;
+      visibility: hidden;
+      margin-left: 50%;
+      transform: translate(-50%, 0);
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <button class="button">点我</button>
+  <div class="box"><p style="user-select: none;">我是登录框</p></div>
+  <script>
+    var button=document.querySelector('.button');
+    var box=document.querySelector('.box');
+    button.addEventListener('click', function(){
+      box.style.visibility='visible';
+    });
+    var mouse_offset_x=0;
+    var mouse_offset_y=0;
+    box.addEventListener('mousedown', function(e){
+      // 鼠标在盒子中的偏移量
+      mouse_offset_x=e.pageX-this.offsetLeft;
+      mouse_offset_y=e.pageY-this.offsetTop;
+      function move(e){
+        // 盒子边缘位置
+        var x=e.pageX-mouse_offset_x;
+        var y=e.pageY-mouse_offset_y;
+        // console.log(x);
+        // console.log(y);
+        box.style.marginLeft='0';
+        box.style.left=x+'px';
+        box.style.top=y+'px';
+      };
+      // 注意这里是给document加事件
+      document.addEventListener('mousemove', move);
+      // 松开鼠标元素不再移动
+      document.addEventListener('mouseup', function(e){
+        document.removeEventListener('mousemove', move);
+      });
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东首页s键</title>
+</head>
+<body>
+    <!-- <input type="text" value="神舟笔记本"> -->
+    <input type="text" value="">
+    <script>
+        var search=document.querySelector('input');
+        // 不能用keydown, 你可以看看用keydown会有什么bug. 
+        document.addEventListener('keyup', function(e){
+            // console.log(e.keyCode);
+            if(e.keyCode===83){ // 83 s的ascii值
+                search.focus(); // 让seatch获取焦点
+            }
+        });
+    </script>
+</body>
+</html>

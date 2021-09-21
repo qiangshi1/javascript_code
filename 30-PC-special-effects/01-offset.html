@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .father {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+
+        .father2 {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: palevioletred;
+            margin-top: 100px;
+            margin-left: 100px;
+            
+        }
+        .son2 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: floralwhite;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+
+    </style>
+</head>
+<div class="father">
+    <div class="son"></div>
+</div>
+<div class="father2">
+    <div class="son2"></div>
+</div>
+<script>
+    var father=document.querySelector(".father");
+    var son=document.querySelector(".son");
+    var son2=document.querySelector(".son2");
+    // offsetTop距上边距 offsetLeft距左边距
+    console.log(father.offsetTop); // 100
+    console.log(father.offsetLeft); // 100
+    // 嵌套的盒子以body或者带有定位的祖辈为准
+        // 此例为以body为基准
+    console.log(son.offsetTop); // 100
+    console.log(son.offsetLeft); // 200
+        // 此例为以父盒子为基准
+    console.log(son2.offsetTop); // 100
+    console.log(son2.offsetLeft); // 100
+    // offsetWidth盒子的宽 offsetHight盒子的高
+    // offsetWidth和offsetHight包括border和padding, 不包括margin
+    console.log(son.offsetWidth); // 100
+    console.log(son.offsetHight); // 100
+    // offsetParent返回带有定位的父亲，或者body.(提示parentNode返回亲爸爸)
+    console.log(son.offsetParent); // body
+    console.log(son2.offsetParent); // father2
+</script>
+<body>
+    
+</body>
+</html>

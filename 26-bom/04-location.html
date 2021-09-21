@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+</head>
+<body>
+    <script>
+        // location也可以写成window.location
+        console.log(location.protocol);
+        console.log(location.host);
+        console.log(location.port);
+
+        // 可以修改location实现网页跳转
+            // 此案例是3秒之后跳转到百度
+        setTimeout(function(){
+            location.href="http://www.baidu.com";
+        },3000);
+        
+    </script>
+</body>
+</html>

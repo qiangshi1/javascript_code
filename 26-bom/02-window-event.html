@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window常见事件</title>
+</head>
+<body>
+    <script>
+        // 1. 窗口加载事件 window.onload=function
+            // 页面加载完之后再执行
+            // 通过这样的方法可以把script提到网页标签之前
+        window.onload=function(){
+            var btn=document.querySelector('click', function(){
+                alert('点击我');
+            });
+        };
+        // 2. 窗口加载事件 window.addEventListener('click', function)
+            // 和window.onload=function类似, 但是可以执行多个
+        // 3. DOMContentLoaded, DOM执行完, 但图片/flash还没有渲染完
+        document.addEventListener('DOMContentLoaded', function(){
+            alert('DOMContentLoaded');
+        });
+        // 4. 调整窗口大小事件
+        window.addEventListener('resize', function(){
+            console.log('窗口大小变化了');
+            console.log(window.innerWidth);
+            console.log(window.innerHeight);
+        })
+        // 5. 定时器事件
+        console.log('开始计时: ');
+        setTimeout(function(){
+            console.log('时间到了! ');
+        }, 2000); // 2000的单位是ms, 如果省略, 默认是0
+    </script>
+    <button>点击</button>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        console.log(location.search);
+        var params=location.search.substr(1); // 去掉？
+        console.log(params);
+        var arr=params.split('='); // 分割字符串
+        console.log(arr);
+        var div=document.querySelector('div');
+        div.innerHTML=arr[1];
+    </script>
+</body>
+
+</html>
