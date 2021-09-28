@@ -5,8 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>京东放大镜</title>
+    <style>
+        .box{
+            position: relative;
+            /* overflow: hidden; */
+        }
+        .pic {
+            position: absolute;
+            border:1px solid #bbb;
+            overflow: hidden;
+        }
+        .mask{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background-color: #FEDE4F;
+            transform: translate(-50%, -50%);
+            opacity: .5;
+            /* 更改鼠标形状 */
+            cursor: move;
+        }
+        .big{
+            display: none;
+            position: absolute;
+            left: 500px;
+            top: 0;
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+            border:1px solid #bbb;
+            /* background-color: red; */
+        }
+        .big img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="js/detail.js"></script>
 </head>
 <body>
-    <img src="images/p1.jpg" alt="">
+    <div class="box">
+        <div class="pic">
+            <img src="images/p1.jpg" alt="" >
+            <div class="mask"></div>
+        </div>
+        
+        <div class="big">
+            <img src="images/p2.jpg" alt="">
+        </div>
+    </div>
+    
 </body>
 </html>

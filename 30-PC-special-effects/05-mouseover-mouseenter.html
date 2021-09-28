@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouseover和mouseenter的区别</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .box2{
+            width: 250px;
+            height: 250px;
+            background-color: green;
+        }
+        .box3{
+            width: 300px;
+            height: 300px;
+            background-color: black;
+        }
+        .box4{
+            width: 250px;
+            height: 250px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <div class="box3">
+        <div class="box4"></div>
+    </div>
+    <script>
+        // 你可以鼠标在盒子里边动一下观察
+        var box1=document.querySelector('.box1');
+        box1.addEventListener('mouseover', function(){
+            console.log('box1');
+        });
+        // 你可以鼠标在盒子里边动一下观察
+        var box3=document.querySelector('.box3');
+        box3.addEventListener('mouseenter', function(){
+            console.log('box3');
+        });
+    </script>
+</body>
+</html>

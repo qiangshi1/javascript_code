@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 10px solid black;
+            padding: 30px;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            border: 10px solid rgb(128, 2, 2);
+            padding: 30px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+    </div>
+    <div style="height: 300px;"></div>
+    <div class="box2">
+        我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+    </div>
+    <script>
+        var box=document.querySelector('.box');
+        console.log(box.scrollWidth);   // 160 width+2*padding
+        console.log(box.scrollHeight);   // 280 height+2*padding+内容溢出的部分
+        console.log(box.clientWidth);  // 160 width+2*padding
+        console.log(box.clientHeight);  // 160 height+2*padding
+        // 拖动滚动条试试
+        var box2=document.querySelector('.box2');
+        box2.addEventListener('scroll', function(e){
+            console.log(box2.scrollTop); // 内容向上超出的部分
+        });
+    </script>
+</body>
+</html>
