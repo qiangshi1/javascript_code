@@ -1,8 +1,7 @@
-# 网页轮播图
+# PC端网页轮播图
 
 静态网页用之前做的品优购
 
-课程: https://www.bilibili.com/video/BV1Sy4y1C7ha?p=6&spm_id_from=pageDriver
 
 1. 
     - 通过文件引入index.js

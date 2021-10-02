@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖动元素</title>
+    <style>
+        .box1{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <script>   
+    
+    var box1=document.querySelector('.box1');
+ 
+    var startX=0; // 初始手指坐标
+    var startY=0;
+    var x=box1.offsetLeft;
+    var y=box1.offsetTop;// 获取盒子原来位置
+    box1.addEventListener('touchstart', function(e){
+        startX=e.targetTouches[0].pageX;
+        startY=e.targetTouches[0].pageY;
+    });
+    box1.addEventListener('touchmove', function(e){
+        // 计算手指移动距离，手指移动之后的坐标减去手指初始坐标
+        var moveX=e.targetTouches[0].pageX-startX;
+        var moveY=e.targetTouches[0].pageY-startY;
+        this.style.left=x+moveX+'px';
+        this.style.top=y+moveY+'px';
+        e.preventDefault(); // 阻止屏幕滚动的默认行为
+    });
+    
+    box1.addEventListener('touchend', function(e){
+        x=box1.offsetLeft;
+        y=box1.offsetTop;
+    });
+    </script>
+</body>
+</html>

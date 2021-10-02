@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="animate.js"></script>
     <title>淘宝侧边栏</title>
     <style>
 
@@ -18,7 +19,7 @@
             margin-bottom: 5px;
         }
         .box3{
-            height: 500px;
+            height: 1000px;
             background-color: green;
         }
         .side-bar{
@@ -29,6 +30,16 @@
             right: 50px;
             top: 350px;
         }
+        .go-back {
+            height: 50px;
+            width:100px;
+            background-color: rgb(24, 99, 83);
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            display: none;
+            user-select:none;
+        }
     </style>
 </head>
 <body>
@@ -37,12 +48,14 @@
         <div class="box2"></div>
         <div class="box3"></div>
     </div>
-    <div class="side-bar"></div>
+    <div class="side-bar">
+        <div class="go-back">go back</div>
+    </div>
     <script>
         // pageYOffset和srollTop类似，只不过它是针对window的，而srollTop是针对页面元素的
         var side_bar=document.querySelector('.side-bar');
         document.addEventListener('scroll', function(){
-            console.log(window.pageYOffset);
+            // console.log(window.pageYOffset);
             if(window.pageYOffset>300){
                 side_bar.style.top='50px';
                 side_bar.style.position='fixed';
@@ -51,6 +64,24 @@
                 side_bar.style.top='350px';
 
             }
+        });
+        var go_back=document.querySelector('.go-back');
+        // console.log(go_back);
+        document.addEventListener('scroll', function(){
+            // console.log(window.pageYOffset);
+            if(window.pageYOffset>800){
+                console.log(go_back);
+                go_back.style.display='block';
+            }else{
+                go_back.style.display='none';
+            }
+        });
+        go_back.addEventListener('click', function(){            
+            // 返回顶部，实参不加单位
+                // 写在了animate中
+            // window.scroll(0,0);
+            // 添加缓动动画
+            animate(window, 0);
         });
         
     </script>

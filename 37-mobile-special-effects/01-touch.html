@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touch</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <script>
+        // touch回调
+        var box1=document.querySelector('.box1');
+        // touchstart开始触摸
+        box1.addEventListener('touchstart', function(){
+            console.log('touchstart');
+        });
+        // touchmove持续触摸
+        box1.addEventListener('touchmove', function(){
+            console.log('touchmove');
+        });
+        // touchend结束触摸
+        box1.addEventListener('touchend', function(){
+            console.log('touchend');
+        });
+        // touch对象
+        box1.addEventListener('touchstart', function(e){
+            console.log(e);
+            console.log(e.touches);
+            console.log(e.targetTouches);
+            console.log(e.changedTouches);
+        });
+    </script>
+</body>
+</html>
