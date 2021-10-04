@@ -17,12 +17,12 @@
     - changedTouches 手指状态发生了改变的列表
     - touchend可以获取changedTouches，而touches和targetTouches为空。
     - 最常用的是targetTouches
-3. 拖动元素
+3. 拖动元素（02-move.html）
     - 通过touch的相关回调实现
     - 
 
     
-## 移动端click会有300ms的延迟问题
+## 移动端click会有300ms的延迟问题（（01-click_delay.html））----在edge中模拟移动端好像测不出来300ms的延迟，以后再关注吧
 1. 原因在于移动端有双击放大缩小的功能
     - 解决方案1：禁止缩放功能：`<meta name="viewport" content="user-scalable=no">`
     - 解决方案2：用touch封装一个click, 摘自：https://blog.csdn.net/weixin_46113485/article/details/104567528
@@ -49,8 +49,17 @@
         ```
     - 解决方案3：fastclick插件：https://github.com/JakeSidSmith/react-fastclick
 
+## 轮播图插件
+1. 官网：https://swiper.com.cn/（39-case25-swipper-on-mobile2）
+2. 其它移动端常用插件：
+    - superslide：http://www.superslide2.com/
+    - iscroll：https://github.com/cubiq/iscroll
+    - zy.media.js(不同浏览器视频样式一致插件): https://github.com/ireaderlab/zyMedia
 
-
+## 移动端开发框架
+1. bootstrap实现轮播图
+    - 先引入jquery，再引入bootstarp
+    - ----》未做（P352、P353）
 
 
 

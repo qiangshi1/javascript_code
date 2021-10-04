@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>移动端click 300ms延迟问题</title>
+    <title>移动端click 300ms延迟问题----搁置</title>
+    <style>
+        .box1{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="box1"></div>
+    <script>
+        var timestamp_last = (new Date()).valueOf();
+        box1=document.querySelector('.box1');
+        box1.addEventListener('click', function(){
+            var timestamp = (new Date()).valueOf();
+            console.log(timestamp-timestamp_last);
+            timestamp_last=timestamp;
+        });
+    </script>
 </body>
 </html>
