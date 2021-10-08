@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery.min.js"></script>
+    <title>王者荣耀----折叠卡片效果</title>
+</head>
+<style>
+    ul {
+        list-style: none;
+        width: 720px;
+        margin: 0 auto;
+        background-color: rgb(15,62,102);
+        overflow: hidden;
+    }
+
+    li{
+        position: relative;;
+        float: left;
+        margin-right: 10px;
+        width: 69px;
+        height: 69px;
+    }
+    .active{
+        width: 224px;
+    }
+    .active .large{
+        display: block;
+    }
+    .active .small{
+        display: none;
+    }
+    li:last-child{
+        margin-right: 0px;
+    }
+    .large{
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+    }
+    .small{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+</style>
+
+<body>
+
+    <ul id="FreeHeros-Cont" class="hero-list clearfix">
+        <li>
+            <img class="small" src="images/114.jpg" width="69" height="69">
+            <img class="large" src="images/114-freehover.png" width="224" height="69">
+        </li>
+        <li class="active">
+            <img class="small" src="images/156.jpg" width="69" height="69">
+            <img class="large" src="images/156-freehover.png" width="224" height="69">
+        </li>
+        <li>
+            <img class="small" src="images/167.jpg" width="69" height="69">
+            <img class="large" src="images/167-freehover.png" width="224" height="69">
+        </li>
+        <li>
+            <img class="small" src="images/137.jpg" width="69" height="69">
+            <img class="large" src="images/137-freehover.png" width="224" height="69">
+        </li>
+        <li>
+            <img class="small" src="images/508.jpg" width="69" height="69">
+            <img class="large" src="images/508-freehover.png" width="224" height="69">
+        </li>
+        <li>
+            <img class="small" src="images/533.jpg" width="69" height="69">
+            <img class="large" src="images/533-freehover.png" width="224" height="69">
+        </li>
+        <li class="">
+            <img class="small" src="images/538.jpg" width="69" height="69">
+            <img class="large" src="images/538-freehover.png" width="224" height="69">
+        </li>
+    </ul>
+
+
+
+    <script>
+        $(function () {
+            // 当鼠标经过li
+            $('li').mouseover(function(){
+                // li的宽度变为224px
+                $(this).animate({
+                    width: 224 // li的宽度变为224px
+                }, 200).find('.small').fadeOut().siblings('.large').fadeIn();// 小图片淡出，大图片淡入
+
+                $(this).siblings('li').animate({// li的兄弟宽度变为69px
+                    width: 69
+                }, 200).find('.large').fadeOut().siblings('.small').fadeIn();// 大图片淡出，小图片淡入;
+            });     
+        });
+    </script>
+</body>
+
+</html>

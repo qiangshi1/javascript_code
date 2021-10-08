@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery css</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .box2{
+            background-color: pink!important;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <script>
+        $(function(){
+            // css传1个参数，返回属性的值，带单位
+            console.log($('.box1').css('width')); // 返回 300px
+            // css传2个参数，修改属性的值
+            $('.box1').css('height','100'); 
+                // 同上
+            // $('.box1').css('height','100px'); 
+            // css传入对象，可以修改多个属性的值
+            $('.box1').css({
+                width: 250,
+                height: '250px',
+                // 驼峰命名法
+                backgroundColor: 'green'
+            }); 
+            // 添加类
+            $('.box1').addClass('box2'); // box2没有.(这个点) 
+            // 删除类
+            $('.box1').removeClass('box2');
+            // 切换类
+            $('.box1').toggleClass('box2'); // 如果没有.box2，则添加.box2; 如果有.box2，则删除.box2.
+            $('.box1').toggleClass('box2');
+        });
+    </script>
+</body>
+</html>

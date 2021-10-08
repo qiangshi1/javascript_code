@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 选择器</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="navi">navi
+        <p>navi的儿子</p>
+        <div>
+            <p>navi的孙子</p>
+        </div>
+    </div>
+
+    <ul>
+        <li>ul 1</li>
+        <li>ul 2</li>
+        <li>ul 3</li>
+        <li>ul 4</li>
+        <li>ul 5</li>
+    </ul>
+    <ol>
+        <li>ol 1</li>
+        <li class="item">ol 2</li>
+        <li>ol 3</li>
+        <li>ol 4</li>
+        <li>ol 5</li>
+    </ol>
+    <script>
+        // console.log($('.navi')); // 类选择器
+        // console.log($('ul li')); // 层级选择器
+        $('.navi').css('background', 'pink');
+        $('ul li').css('background', 'red'); // 隐式迭代
+        $('ul li:first').css('color', 'white'); // 筛选选择器，选出第一个元素
+        $('ul li:eq(2)').css('color', 'blue'); // 筛选选择器，选出第3(2+1)个元素
+        // $('ul li').eq(2).css('color', 'blue'); // 筛选选择器，同上
+        $('ul li:odd').css('font-weight', '700'); // 筛选选择器，选出索引号是奇数的元素，索引号从0开始。
+
+        // 筛选方法
+        console.log($('ul li:first').parent()); // 找到父级元素
+        console.log($('.navi').children('p').css('color', 'blue')); // .children()子代选择器，只找最近的子代
+        console.log($('.navi').find('p').css('font-weight', '700')); // .find()子代选择器，找所有的后代
+        console.log($('.item').siblings().css('background', 'yellow')); // 兄弟选择器
+        console.log($('.item').hasClass('item')); // 判断元素是否含有类名
+    </script>
+</body>
+</html>

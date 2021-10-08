@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝精品服饰案例----</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 350px;
+            height: 302px;
+            /* background-color: red; */
+            margin: 0 auto;
+        }
+        .left{
+            float: left;
+        }
+        .left ul{
+            border: 1px solid black;
+            overflow:hidden;
+        }
+        .left ul li{
+            font-size: 24px;
+            border: 1px solid black;
+        }
+        .right{
+            float: left;
+            border: 1px solid black;
+            width: 272px;
+            height: 300px;
+        }
+        .right ul li{
+            display: none;
+        }
+        .right img{
+            
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="left">
+            <ul>
+                <li>女靴</li>
+                <li>雪地靴</li>
+                <li>冬裙</li>
+                <li>呢大衣</li>
+                <li>毛衣</li>
+                <li>棉服</li>
+                <li>女裤</li>
+                <li>羽绒服</li>
+                <li>牛仔裤</li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul>
+                <li><img src="images/p1.jpeg" alt=""></li>
+                <li><img src="images/p2.jpeg" alt=""></li>
+                <li><img src="images/p3.jpg" alt=""></li>
+                <li><img src="images/p4.jpeg" alt=""></li>
+                <li><img src="images/p5.jpeg" alt=""></li>
+                <li><img src="images/p6.jpg" alt=""></li>
+                <li><img src="images/p7.jpeg" alt=""></li>
+                <li><img src="images/p8.jpeg" alt=""></li>
+                <li><img src="images/p9.jpeg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            // 1. 鼠标经过事件
+            $('.left li').mouseover(function(){
+                $(this).css('background-color','red');
+                $(this).siblings().css('background-color','white');
+                var index=$(this).index();
+                // 2. 显示隐藏右边内容
+                $('.right ul li').eq(index).show();
+                $('.right ul li').eq(index).siblings().hide();
+            });
+            
+
+        });
+    </script>
+</body>
+</html>

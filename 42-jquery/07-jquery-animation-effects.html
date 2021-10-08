@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery动画效果</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* display: none; */
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            display: none;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .box4{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            display: none;
+        }
+        .box5{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .box6{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            display: none;
+        }
+        .box7{
+            width: 100px;
+            height: 100px;
+            background-color: goldenrod;
+        }
+        .box8{
+            width: 100px;
+            height: 100px;
+            background-color: lawngreen;
+            display: none;
+        }
+        .box9{
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+        .box10{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+        .box11{
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+        }
+        .box12{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: orchid;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+    <div class="box7"></div>
+    <div class="box8"></div>
+    <div class="box9"></div>
+    <div class="box10"></div>
+    <div class="box11"></div>
+    <div class="box12"></div>
+    <script>
+        $(function(){
+            // 出现和隐藏
+            // show([speed, [easing], [fn]])
+                // speed是预设的速度，字符串表示
+                // [easing] 切换效果
+                // fn是动画执行完毕之后再执行的函数
+            setTimeout(function(){
+                $('.box1').show('fast', function(){
+                    alert('box1 show over');
+                });
+            }, 1000);
+            // hide([speed, [easing], [fn]])
+            setTimeout(function(){
+                $('.box1').hide('fast');
+            }, 2000);
+            // 滑动(初始状态得是hide)
+                // 下拉
+            setTimeout(function(){
+                $('.box2').slideDown();
+            }, 3000);
+                // 上拉
+            setTimeout(function(){
+                $('.box2').slideUp();
+            }, 4000);
+                // .slideToggle(): 根据当前状态选择下拉还是上拉
+            // 事件切换函数hover
+                // 下边第一个函数是鼠标经过的函数，第二个函数是鼠标离开的函数
+            $('.box3').hover(function(){
+                $('.box4').slideUp();
+            }, function(){
+                $('.box4').slideDown();
+            });
+                // 如果事件切换函数只有一个参数，则经过触发函数，离开也会触发函数
+                // 所以用slideToggle()会实现和上边类似的效果
+                // 但码量会减少
+                // stop()是为了停止上一次动画，加上stop()是为了防止频繁触发延迟响应
+            $('.box5').hover(function(){
+                $('.box6').stop().slideToggle();
+            });   
+            // 淡入淡出
+                // 相当于实现了两个回调：fadeIn()和fadeOut()
+            $('.box7').hover(function(){
+                $('.box8').stop().fadeToggle(1000);
+            }); 
+            // 修改透明度：fadeTo()
+            $('.box9').hover(function(){
+                $('.box10').stop().fadeTo(1000, 0.4);
+            }); 
+            // 自定义动画: animate()
+            $('.box11').click(function(){
+                $('.box12').stop().animate({
+                    left: 500,
+                    opacity: 0.1,
+                }, 500);
+            }); 
+        });
+    </script>
+</body>
+</html>

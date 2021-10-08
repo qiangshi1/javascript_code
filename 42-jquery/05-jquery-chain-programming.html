@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery链式编程</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        $(function(){
+            $('ul li').mouseover(function(){
+                // 这句话的意思：我的颜色变成红色，我兄弟的颜色变成无色
+                // 这种写法就是链式编程
+                $(this).css('color', 'red').siblings().css('color', '');
+            });
+        });
+    </script>
+</body>
+</html>
