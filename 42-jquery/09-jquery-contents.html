@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery内容</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="box1">
+        <span>我是内容</span>
+    </div>
+    <div class="box2">
+        <span>我是内容</span>
+    </div>
+    <input type="text" value="请输入内容">
+    <script>
+        $(function(){
+            // .html()获取内容+标签
+            console.log($('.box1').html()); // <span>我是内容</span>
+            // .text()获取内容
+            console.log($('.box1').text()); // 我是内容
+            // .text()相当于原生js的innerText()
+            console.log($('.box2').text('123')); 
+            // .val()获取value值
+            console.log($('input').val()); // 请输入内容
+        });
+    </script>
+</body>
+</html>

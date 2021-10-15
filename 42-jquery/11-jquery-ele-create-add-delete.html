@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery创建添加删除元素</title>
+    <script src="jquery.min.js"></script>
+    <ul>
+        <li>我是原来的li</li>
+    </ul>
+    <ol>
+        <li>ol->li</li>
+    </ol>
+</head>
+<body>
+    <script>
+        $(function(){
+            // 创建元素
+            var li1=$('<li>我是后加的li1</li>');
+            var li2=$('<li>我是后加的li2</li>');
+            // 内部添加，并且放到最后边
+            $('ul').append(li1);
+            // 内部添加，并且放到最前边，同一个元素不能两处添加
+            $('ul').prepend(li2);
+
+            var div1=$('<div>我是div1</div>');
+            var div2=$('<div>我是div2</div>');
+            // 外部添加，之前添加
+            $('ul').after(div1);
+            // 外部添加，之后添加
+            $('ul').before(div2);
+
+            // 删除元素
+            var div3=$('<div class="box3">我是div3</div>');
+            $('ul').after(div3);
+            // 自我删除，自杀
+            $('.box3').remove(); 
+            // 清空内容,F12还是可以看到ol标签
+            $('ol').empty(); 
+            // $('ol').html(''); 也可以删除内容，相当于修改内容为空.
+        });
+    </script>
+</body>
+</html>

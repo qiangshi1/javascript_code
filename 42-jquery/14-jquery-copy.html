@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery拷贝对象</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function(){
+            // ///////////////////////////////////////////////////
+            var targetObj={};
+            var obj={
+                id: 1,
+                name: 'andy'
+            };
+            // obj拷贝给targetObj
+            $.extend(targetObj, obj);
+            console.log(targetObj);
+            // /////////////////////////////////////////////
+            var targetObj2={
+                id: 0,
+            };
+            var obj2={
+                id: 1,
+                name: 'andy'
+            };
+            // 会覆盖
+            $.extend(targetObj2, obj2);
+            console.log(targetObj2);
+            // //////////////////////////////////////////////////////////
+            var targetObj3={
+                id:0,
+            };
+            var obj3={
+                id: 1,
+                name: 'andy'
+            };
+            $.extend(targetObj3, obj3);
+            console.log(targetObj3);
+            // //////////////////////////////
+            // 浅拷贝和深拷贝是针对复杂数据类型的
+            // $.extend(targetObj3, obj3);这种写法是浅拷贝
+            // $.extend(fase, targetObj3, obj3);这种写法是浅拷贝
+            // $.extend(true, targetObj3, obj3);这种写法是深拷贝
+        });
+    </script>
+</body>
+</html>

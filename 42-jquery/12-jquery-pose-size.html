@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery位置、方法</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .box1{
+            width: 350px;
+            height: 350px;
+            background-color: pink;
+            border: 15px solid red;
+            margin: 10px;
+            padding: 5px;
+        }
+        .father{
+            width: 250px;
+            height: 250px;
+            background-color: pink;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <div>n</div>
+    <script>
+        $(function(){
+            // width(), 不包含padding
+            console.log($('.box1').width()); // 350
+            // 设置
+            $('.box1').height('50');
+            // innerWidth(), 包含padding
+            console.log($('.box1').innerWidth()); //360 
+            // outerWidth(), 不跟形参, 包含padding和border
+            console.log($('.box1').outerWidth()); //390 
+            // outerWidth(), 包含padding和border和margin
+            console.log($('.box1').outerWidth(true)); //410
+            // .offset().top 获取文档顶部的距离, 和父盒子没有关系
+            console.log($('.son').offset().top); // 110
+            // 设置offset
+            $('.son').offset({
+                top: 110,
+                left: 70
+            })
+            // position()距离最近的带有定位的父级盒子的相对定位，如果没有，则距离文档的相对位置
+            // position()只能获取不能设置
+            console.log($('.son').position().top); // 110
+            // 卷去的头部的大小
+            $(window).scroll(function(){
+                console.log($(document).scrollTop());
+            });
+        });
+    </script>
+</body>
+</html>

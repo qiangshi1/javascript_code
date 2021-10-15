@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车----练习jQuery属性案例</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        .counts {
+            display: inline;
+        }
+
+        .counts input {
+            width: 30px;
+        }
+        .delete{
+            cursor: pointer
+        }
+        .delete_select{
+            cursor: pointer
+        }
+        .delete_all{
+            cursor: pointer
+        }
+        .bgr{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="" method="get">
+        <input class="select_all" type="checkbox" /> 全选
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        选择 项 &nbsp;&nbsp; 单价 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 个数 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 小计
+        
+
+        <div class="counts">
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="select_item" type="checkbox" /> 苹果
+            <span class="cost">$111.50</span>
+            <a href="#" class="decrement">-</a>
+            <input type="text" class="itxt" value="1">
+            <a href="#" class="increment">+</a>
+            <span class="costs">$111.50</span>
+            <span class="delete">&nbsp;&nbsp;删除</span>
+        </div>
+        
+        
+        <div class="counts">
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="select_item" type="checkbox" /> 香蕉
+            <span class="cost">$013.00</span>
+            <a href="#" class="decrement">-</a>
+            <input type="text" class="itxt" value="1">
+            <a href="#" class="increment">+</a>
+            <span class="costs">$013.00</span>
+            <span class="delete">&nbsp;&nbsp;删除</span>
+        </div>
+        
+        <div class="counts">
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="select_item" type="checkbox" /> 橘子
+            <span class="cost">$000.50</span>
+            <a href="#" class="decrement">-</a>
+            <input type="text" class="itxt" value="1">
+            <a href="#" class="increment">+</a>
+            <span class="costs">$000.50</span>
+            <span class="delete">&nbsp;&nbsp;删除</span>
+        </div>
+        
+        <div class="counts">
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="select_item" type="checkbox" /> 鸭梨
+            <span class="cost">$011.50</span>
+            <a href="#" class="decrement">-</a>
+            <input type="text" class="itxt" value="1">
+            <a href="#" class="increment">+</a>
+            <span class="costs">$011.50</span>
+            <span class="delete">&nbsp;&nbsp;删除</span>
+        </div>
+        
+        
+        <div class="counts">
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="select_item" type="checkbox" /> 韭菜
+            <span class="cost">$077.50</span>
+            <a href="#" class="decrement">-</a>
+            <input type="text" class="itxt" value="1">
+            <a href="#" class="increment">+</a>
+            <span class="costs">$077.50</span>
+            <span class="delete">&nbsp;&nbsp;删除</span>
+        </div>
+        <br>
+        <input class="select_all" type="checkbox" /> 全选 <br>
+        <span class="delete_select">&nbsp;删除选中商品&nbsp;&nbsp;</span><span class="delete_all">&nbsp;删除所有&nbsp;&nbsp;</span><span>已选<span class="sum">xxx</span>件, 共<span class="money">$xxx</span></span>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微博发布留言</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        .box{
+            width: 550px;
+            /* height: 250px; */
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        .sp{
+            display: block;
+        }
+        .txt{
+            margin-left: 10px;
+        }
+        ul li{
+            list-style-type: none;
+            border-bottom: 1px solid rgb(88, 86, 86);
+            margin-right: 40px;
+        }
+        ul li a {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="weibo">
+        <span class="sp">微博发布</span>
+        <textarea name="" class="txt" id="" cols="60" rows="10" >第一条信息</textarea>
+        <button class="btn">发布</button>
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        $(function(){
+            // 发布
+            $('.btn').on('click', function(){
+                if($('.txt').val()!=''){
+                    var li=$('<li></li>');
+                    li.html($('.txt').val()+'<a href="javascript:;">删除</a>');
+                    $('ul').prepend(li);
+                    $('.txt').val('');
+                }else{
+                    alert('nothing to promp!');
+                }
+            });
+            // 删除
+            // 注意用on给动态元素添加事件
+            $('ul').on('click', 'a', function(){
+                console.log('here');
+                $(this).parent().slideUp(function(){
+                    $(this).remove();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

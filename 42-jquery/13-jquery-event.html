@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery事件</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <span>
+        点击、鼠标经过
+    </span>
+    <div class="box1"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ol></ol>
+    <div class="box2">我只触发一次</div>
+    <script>
+        
+        $(function(){
+            // 绑定单个事件
+            $('.box1').click(function(){
+                $(this).css('background-color', 'pink');
+            });
+            $('.box1').mouseenter(function(){
+                $(this).css('border', '5px solid black');
+            });
+            // 绑定多个事件,不同事件使用相同回调
+            $('.box1').on('mouseleave mouseenter', function(){
+                alert('alert');
+            });
+            // 绑定多个事件,不同事件使用不同回调
+            $('.box1').on({
+                click: function(){ $(this).css('width', '300px');},
+                mouseenter: function(){ $(this).css('height', '300px');},
+        
+            });
+            // 事件委托（把给子元素的事件给父元素）
+                // 第二个参数'li'是参数
+            $('ul').on('click', 'li', function(){
+                console.log(this);
+            });
+            // 动态元素事件（点击事件声明在前，动态元素添加在后，用on可以触发事件）
+            $('ol').on('click', function(){ // 这种写法可以触发动态元素事件
+                alert(this);
+            });
+            // $('ol').click(function(){alert(this)}); //这种写法无法触发动态元素事件
+            var li=$('<li>我是ol中的li</li>');
+            $('ol').append(li);
+
+            // one绑定事件
+            $('.box2').one('click', function(){
+                alert('我只触发一次');
+            });
+
+    });
+        
+        
+
+    </script>
+</body>
+</html>
