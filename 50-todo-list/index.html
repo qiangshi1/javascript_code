@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <style>
+        body{
+            margin: 0 auto;
+            width: 800px;
+        }
+        li {
+            list-style: none;
+        }
+
+        .p1 h2{
+            display: inline-block;
+            /* width: 10%; */
+        }
+        .p1 input{
+            width: 80%;
+            height: 100%;
+        }
+        .p2 li {
+            position: relative;
+        }
+        .p2 li input {
+            display: inline-block;
+        }
+        .p2 li p {
+            display: inline-block;
+        }
+        .p2 li button {
+            position: absolute;
+            right: 0px;
+            margin-right: 40px;
+            margin-top: 15px;
+        }
+        .p3 li {
+            position: relative;
+            color: rgb(185, 185, 185);
+        }
+        .p3 li input {
+            display: inline-block;
+        }
+        .p3 li p {
+            display: inline-block;
+        }
+        .p3 li button {
+            position: absolute;
+            right: 0px;
+            margin-right: 40px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="p0">
+        <h2>正在进行：<span id="todoCount"></span> 项</h2>
+        <h2>已完成：<span id="doneCount"></span> 项</h2>
+    </div>
+    <div class="p1">
+        <h2>ToDoList</h2>
+        <input type="text" placeholder="添加Todo" id="title">
+    </div>
+    <div class="p2">
+        <h2>正在进行</h2>
+        <ol id="doing">
+            <!-- 动态创建 -->
+            <!-- <li>
+                <input type="checkbox">
+                <p>asdas</p>
+                <a href="#"></a>
+                <button>删除</button>
+            </li> -->
+        </ol>
+    </div>
+    <div class="p3">
+        <h2>已完成</h2>
+        <ol id="done">
+            <!-- 动态创建 -->
+        </ol>
+    </div>
+</body>
+</html>
