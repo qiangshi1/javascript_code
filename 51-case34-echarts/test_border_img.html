@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试边框图片</title>
+    <script src="js/flexible.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <style>
+        .box{
+            width: 400px;
+            height: 300px;
+            border: 15px solid pink;
+            border-image-source: url(images/border.jpg);
+            /* 不带单位 切四刀形成九宫格 */
+            border-image-slice: 166.67 166.67 166.67 166.67;
+            /* 图片边框的宽度， 默认的话是border里边的15px */
+            border-image-width: 30px;
+            /* 铺方式， 默认是拉伸，这里改成平铺 */
+            border-image-repeat: round;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        给力哦
+    </div>
+</body>
+</html>

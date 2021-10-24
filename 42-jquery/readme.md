@@ -36,7 +36,7 @@
     - `$('.obj')[0]`
     - `$('.obj').get(0)`
 
-## jQuery API（未做P377案例）
+## jQuery API
 1. jQuery选择器（03-jquery-selector.html）
     - 基本选择器、层级选择器、筛选选择器
     - 筛选方法：`$(x).parent()`: 父亲选择器、`$(x).parents('xxx')`: 祖辈选择器、`$(x).children('c')`: 子代选择器（亲儿子）、`$(x).find('c')`: 后代选择器（后代就行）、`$(x).siblings`: 兄弟选择器（除了自己）、`$(x).hasClass('className')`: 判断元素是否含有类名
